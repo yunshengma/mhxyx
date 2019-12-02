@@ -1,13 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="/favicon.ico" />
+    <script src="js/jquery-3.1.1.min.js"></script>
     <title>梦幻手游x</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        header {
+            height: 54px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hd_l {
+            width: 179px;
+            height: 54px;
+            background-color: #cf1132;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: aliceblue;
+        }
+
+        .hd_l i {
+            display: inline-block;
+            width: 25px;
+            height: 11px;
+            background: url(https://nie.res.netease.com/comm/nie.topBar/images/sprite-w_dd519f4.png) -90px -306px no-repeat;
+            margin-right: 8px;
+        }
+
+        .hd_c {
+            width: 143px;
+            height: 47px;
+        }
+
+        .hd_c a img {
+            display: block;
+        }
+
+        .hd_r {
+            width: 138px;
+            height: 54px;
+            border-left: 1px solid black;
+            overflow: hidden;
+        }
+
+        .hd_r ul {
+            position: relative;
+            height: 156px;
+            animation: mymove 5s infinite;
+        }
+
+        @keyframes mymove {
+            from {
+                top: 0px;
+            }
+
+            10% {
+                top: -52px;
+            }
+
+            50% {
+                top: -52px;
+            }
+
+            60% {
+                top: -104px;
+            }
+
+            to {
+                top: -104px;
+            }
+        }
+
+        .hd_r a {
+            text-decoration: none;
+            color: rgb(51, 51, 51);
+            font-size: 12px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hd_r ul li a:hover {
+            border-bottom: 1px solid red;
+            color: red;
+            background-color: rgb(252, 241, 241);
+        }
+
+        .hd_r ul li a {
+            transition: all 0.5s ease-in-out 0s;
+        }
+
+        .zhaozi {
+            position: fixed;
+            top: 54px;
+            left: 0;
+            right: 0;
+            /* background-color: red; */
+            height: 0;
+            transition: all 0.2s ease-in-out 0s;
+            color: #6b6b6b;
+            display: flex;
+            justify-content: space-around;
+            overflow: hidden;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .khdyx_con,
+        .sjyx_con,
+        .yxfz_con {
+            display: flex;
+            height: auto;
+        }
+
+        .wm {
+            writing-mode: tb-rl;
+            /* display: flex;
+            align-items: center;
+            justify-content: space-around; */
+            padding: 10px;
+            margin: 10px;
+            position: absolute;
+            right: 50px;
+            top:50px;
+
+        }
+
+        .wm span {
+            background-color: red;
+            padding: 10px;
+            margin: 10px;
+            color: rgb(255, 255, 255);
+        }
+
+        .tttt {
+            color: red;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .khdyx_con ul li:first-child,
+        .sjyx_con ul li:first-child {
+            font-size: 14px;
+            color: rgb(26, 16, 1);
+        }
+
+        .zhaozi ul {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 6px;
+            height: 500px;
+        }
+
+        .zhaozi ul li {
+            margin: 6px;
+            padding: 3px;
+        }
+
+        .khdyx_box,
+        .yxfz_box {
+            flex-grow: 1;
+        }
+
+        .sjyx_box {
+            flex-grow: 5;
+        }
+        .khdyx_con  ,
+        .sjyx_con  {
+            position: relative;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <div class="hd_l">
+            <div class="hd_l_box">
+                <i></i>
+                游戏全目录
+            </div>
+            <div class="zhaozi">
+                <div class="khdyx_box">
+                    <div class="khdyx_top tttt">
+                        客户端游戏
+                    </div>
+                    <div class="khdyx_con">
+                        <ul>
+                            <li>角色扮演</li>
+                            <li>梦幻西游电脑版</li>
+                            <li>大话西游经典版</li>
+                            <li>天下3</li>
+                            <li>新倩女幽魂</li>
+                            <li>大话西游经典版</li>
+                            <li>天下3</li>
+                            <li>新倩女幽魂</li>
+                            <li>天下3</li>
+                        </ul>
+                        <ul>
+                            <li>竞技/休闲</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                        </ul>
+                        <div class="wm">
+
+                            <span>更多热门端游</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sjyx_box">
+                    <div class="sjyx_top tttt">
+                        手机游戏
+                    </div>
+                    <div class="sjyx_con">
+                        <ul>
+                            <li>热门推荐</li>
+                            <li>梦幻西游电脑版</li>
+                            <li>大话西游经典版</li>
+                            <li>天下3</li>
+                            <li>新倩女幽魂</li>
+                            <li>大话西游经典版</li>
+                            <li>天下3</li>
+                            <li>新倩女幽魂</li>
+                            <li>天下3</li>
+                        </ul>
+                        <ul>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+
+
+                            <li></li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+
+                            <li></li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+
+                            <li></li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+
+                            <li></li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                            <li>新品推荐</li>
+                            <li>我的世界</li>
+                            <li>守望先锋</li>
+                            <li>战意</li>
+                        </ul>
+                        <div class="wm">
+
+                            <span>更多热门手游</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="yxfz_box">
+                    <div class="yxfz_top tttt">
+                        游戏辅助
+                    </div>
+                    <div class="yxfz_con">
+                        <ul>
+                            <li>角色扮演</li>
+                            <li>梦幻西游电脑版</li>
+                            <li>大话西游经典版</li>
+                            <li>天下3</li>
+                            <li>新倩女幽魂</li>
+                            <li>大话西游经典版</li>
+                            <li>天下3</li>
+                            <li>新倩女幽魂</li>
+                            <li>天下3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hd_c">
+            <a href="www.my.163.com"><img src="img/logo1.png" alt=""></a>
+        </div>
+        <div class="hd_r">
+            <ul>
+                <li><a href="">领取网易严选宝箱</a></li>
+                <li><a href="">限时领取免费教程</a></li>
+                <li><a href="">领取网易严选宝箱</a></li>
+            </ul>
+        </div>
+
+    </header>
 </body>
+<script>
+    $(".hd_l").hover(
+        function () {
+            $(".zhaozi").css("height", "500px")
+        },
+        function () {
+            $(".zhaozi").css("height", "0")
+        }
+    )
+</script>
+
 </html>
